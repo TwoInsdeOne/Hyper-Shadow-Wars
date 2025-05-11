@@ -10,6 +10,7 @@ public class bullet : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject explosionFX;
     public ParticleSystem ps;
+    private CircleCollider2D cc;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,8 @@ public class bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         spriteRenderer.enabled = false;
+        Destroy(rb);
+        Destroy(cc);
         Destroy(gameObject, 0.5f);
         GameObject fx = Instantiate(explosionFX);
         fx.transform.position = transform.position;
