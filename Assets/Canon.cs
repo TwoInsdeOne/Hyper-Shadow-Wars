@@ -16,6 +16,7 @@ public class Canon : MonoBehaviour
     public int HP;
     public Animator ani;
     private bool alive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +62,11 @@ public class Canon : MonoBehaviour
                 ani.SetTrigger("destroy");
                 Destroy(gameObject, 1f);
             }
+        }else if(collision.gameObject.tag == "wall2")
+        {
+            alive = false;
+            ani.SetTrigger("destroy");
+            Destroy(gameObject, 1f);
         }
     }
 }

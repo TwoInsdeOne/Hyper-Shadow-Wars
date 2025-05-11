@@ -128,6 +128,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3249227114610904129}
   explosionFX: {fileID: 3952170961979132211, guid: 37943516c2f2bfa42b7e59bd6cbb451b, type: 3}
   ps: {fileID: 4542649423645900159}
+  damage: 4
 --- !u!199 &2896189134422747888
 ParticleSystemRenderer:
   serializedVersion: 6
