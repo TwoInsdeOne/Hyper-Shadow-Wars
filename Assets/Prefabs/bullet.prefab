@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  direction: {x: 1, y: 0}
   spriteRenderer: {fileID: 3692249938691785872}
   explosionFX: {fileID: 5316861412251551894, guid: fde4729750464be4ba7e913369cf3dc0, type: 3}
   ps: {fileID: 5191509776356877134}

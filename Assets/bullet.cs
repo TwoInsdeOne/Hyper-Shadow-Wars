@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed;
+    public Vector2 direction;
     public SpriteRenderer spriteRenderer;
     public GameObject explosionFX;
     public ParticleSystem ps;
@@ -15,7 +16,7 @@ public class bullet : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-        rb.AddForce(new Vector2(speed, 0), ForceMode2D.Impulse);
+        rb.AddForce(direction * speed, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
