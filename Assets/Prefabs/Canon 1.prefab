@@ -193,7 +193,8 @@ MonoBehaviour:
   speed: 4
   bulletExit: {fileID: 9169129371702843651}
   angle: 0
-  HP: 0
+  HP: 5
+  ani: {fileID: 2418042007638664869}
 --- !u!1 &894854445103922663
 GameObject:
   m_ObjectHideFlags: 0

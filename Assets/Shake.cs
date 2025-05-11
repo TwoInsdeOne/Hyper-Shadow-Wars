@@ -7,6 +7,7 @@ public class Shake : MonoBehaviour
 {
     public float timer;
     public float str;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +28,13 @@ public class Shake : MonoBehaviour
             transform.position = new Vector3(0, 0, 0);
         }
     }
-    public void StartShake(float duration, float strenght)
+    public void StartShake(float duration, float strenght, bool shakeJoystick)
     {
-        Gamepad.current.SetMotorSpeeds(0.3f, 0.3f);
+        if(shakeJoystick)
+        {
+            Gamepad.current.SetMotorSpeeds(0.3f, 0.3f);
+        }
+        
         timer = duration;
         str = strenght;
     }

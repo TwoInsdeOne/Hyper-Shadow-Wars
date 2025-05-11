@@ -11,6 +11,7 @@ public class bullet : MonoBehaviour
     public GameObject explosionFX;
     public ParticleSystem ps;
     private CircleCollider2D cc;
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {

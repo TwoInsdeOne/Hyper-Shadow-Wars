@@ -25,6 +25,6 @@ public class PlayerShot : MonoBehaviour
     {
         GameObject bullet = Instantiate(gun[currentGun]);
         bullet.transform.position = bulletExit.position;
-        shake.StartShake(shakeDuration, shakeStrenght);
+        shake.StartShake(shakeDuration, shakeStrenght, false);
     }
 }

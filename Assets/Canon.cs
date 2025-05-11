@@ -14,16 +14,23 @@ public class Canon : MonoBehaviour
     public Transform bulletExit;
     public float angle;
     public int HP;
+    public Animator ani;
+    private bool alive;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").transform;
         timer2 = 2f;
+        alive = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!alive)
+        {
+            return;
+        }
         if(timer1 >= 0)
         {
             rb.velocity = new Vector2(-speed, 0);
@@ -41,5 +48,19 @@ public class Canon : MonoBehaviour
         b.transform.position = bulletExit.position;
         b.transform.eulerAngles = new Vector3(0, 0, Mathf.Rad2Deg*(angle + Mathf.PI));
         b.GetComponent<bullet>().direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "PlayerBullet")
+        {
+            HP = HP - collision.gameObject.GetComponent<bullet>().damage;
+            if(HP <= 0)
+            {
+                alive = false;
+                ani.SetTrigger("destroy");
+                Destroy(gameObject, 1f);
+            }
+        }
     }
 }
