@@ -8,6 +8,7 @@ TagManager:
   - EnemyBullet
   - HPBox
   - Gun
+  - wall2
   layers:
   - Default
   - TransparentFX
