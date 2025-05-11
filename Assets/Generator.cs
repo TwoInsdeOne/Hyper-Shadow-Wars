@@ -7,6 +7,9 @@ public class Generator : MonoBehaviour
     public List<GameObject> things;
     public float interval;
     private float timer;
+    public float randomY;
+    public float randomZmin;
+    public float randomZmax;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,7 @@ public class Generator : MonoBehaviour
         if(timer <= 0)
         {
             GameObject thing = Instantiate(things[Random.Range(0, things.Count)]);
-            thing.transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(2f, 10f));
+            thing.transform.position = new Vector3(transform.position.x, transform.position.y + Random.Range(-randomY, randomY), Random.Range(-randomZmin, randomZmax));
             timer = interval;
         }
     }
