@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public float shakeDuration;
     public float shakeStrenght;
     public Slider hpBar;
+    
     // Start is called before the first frame update
     void Start()
     {

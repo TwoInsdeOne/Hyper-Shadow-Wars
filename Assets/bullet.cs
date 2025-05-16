@@ -12,6 +12,8 @@ public class bullet : MonoBehaviour
     public ParticleSystem ps;
     private CircleCollider2D cc;
     public int damage;
+    public int score;
+    private PlayerShot player;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         rb.AddForce(direction * speed, ForceMode2D.Impulse);
+        player = GameObject.Find("Player").GetComponent<PlayerShot>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,10 @@ public class bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(gameObject.tag == "EnemyBullet" && collision.gameObject.tag == "PlayerBullet")
+        {
+            player.IncreaseScore(score);
+        }
         spriteRenderer.enabled = false;
         Destroy(rb);
         Destroy(cc);

@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -497477203
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d691447959f93c6479eb08904917f62e, type: 3}
   m_Color: {r: 1, g: 0.19339621, b: 0.55597043, a: 1}
@@ -129,6 +129,7 @@ MonoBehaviour:
   explosionFX: {fileID: 3952170961979132211, guid: 37943516c2f2bfa42b7e59bd6cbb451b, type: 3}
   ps: {fileID: 4542649423645900159}
   damage: 4
+  score: 8
 --- !u!199 &2896189134422747888
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -168,8 +169,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1831942023
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0

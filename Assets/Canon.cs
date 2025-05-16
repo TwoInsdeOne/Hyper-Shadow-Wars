@@ -16,7 +16,7 @@ public class Canon : MonoBehaviour
     public int HP;
     public Animator ani;
     private bool alive;
-
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +58,7 @@ public class Canon : MonoBehaviour
             HP = HP - collision.gameObject.GetComponent<bullet>().damage;
             if(HP <= 0)
             {
+                player.GetComponent<PlayerShot>().IncreaseScore(score);
                 alive = false;
                 ani.SetTrigger("destroy");
                 Destroy(gameObject, 1f);
