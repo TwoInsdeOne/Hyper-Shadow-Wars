@@ -9,11 +9,23 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction;
     public float speed;
     private Rigidbody2D rb;
+    private void OnEnable()
+    {
+        PlayerHealth.OnPlayerDeath += DisableMoving;
+
+        GameManager.OnGameStart += EnableMoving;
+    }
+    private void OnDisable()
+    {
+        PlayerHealth.OnPlayerDeath -= DisableMoving;
+
+        GameManager.OnGameStart -= EnableMoving;
+    }
     // Start is called before the first frame update
     void Start()
     {
         playerActions = new PlayerActions();
-        playerActions.Movement.Enable();
+        playerActions.Movement.Disable();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -24,5 +36,13 @@ public class PlayerMovement : MonoBehaviour
         direction = direction.normalized;
 
         rb.AddForce(direction*speed, ForceMode2D.Impulse);
+    }
+    public void DisableMoving()
+    {
+        playerActions.Movement.Disable();
+    }
+    public void EnableMoving()
+    {
+        playerActions.Movement.Enable();
     }
 }

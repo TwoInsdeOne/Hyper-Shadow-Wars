@@ -17,6 +17,14 @@ public class Canon : MonoBehaviour
     public Animator ani;
     private bool alive;
     public int score;
+    private void OnEnable()
+    {
+        PlayerHealth.OnPlayerDeath += Deactivate;
+    }
+    private void OnDisable()
+    {
+        PlayerHealth.OnPlayerDeath -= Deactivate;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -59,15 +67,21 @@ public class Canon : MonoBehaviour
             if(HP <= 0)
             {
                 player.GetComponent<PlayerShot>().IncreaseScore(score);
-                alive = false;
-                ani.SetTrigger("destroy");
-                Destroy(gameObject, 1f);
+                SelfDestroy();
             }
         }else if(collision.gameObject.tag == "wall2")
         {
-            alive = false;
-            ani.SetTrigger("destroy");
-            Destroy(gameObject, 1f);
+            SelfDestroy();
         }
+    }
+    public void SelfDestroy()
+    {
+        alive = false;
+        ani.SetTrigger("destroy");
+        Destroy(gameObject, 1f);
+    }
+    public void Deactivate()
+    {
+        SelfDestroy();
     }
 }
